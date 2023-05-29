@@ -2,6 +2,11 @@
   width: 200px;
   border: 1px solid #ccc;
   padding: 10px;
+  background-color: bisque;
+  margin: 10px;
+}
+.productCard:hover {
+  background-color: yellow;
 }
 
 .productCard__image {
