@@ -1,0 +1,6 @@
+.products {
+  background-color: yellow;
+  flex: 10;
+  flex-wrap: wrap;
+  display: flex;
+}
