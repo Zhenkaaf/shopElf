@@ -2,6 +2,7 @@ import styles from "./Sidebar.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { selectShop, resetShop } from "./../../store/shopSlice";
 import { fetchProducts } from "./../../store/productSlice";
+import axios from "axios";
 
 const Sidebar = () => {
   const dispatch = useDispatch();
@@ -22,18 +23,20 @@ const Sidebar = () => {
     dispatch(resetShop());
   };
 
+  const testFn = async () => {
+    console.log("testFnWork");
+    try {
+      const response = await axios.get("http://localhost:8001/pizzas");
+      const posts = response.data;
+      console.log("pizzas", posts); // Ваши данные о постах
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className={styles.sidebar}>
       <h2>Shops:</h2>
-      {/* {shops.map((shop) => (
-        <button
-          key={shop.shopId}
-          onClick={() => handleShopSelect(shop.shopId)}
-          className={`${shop[Object.keys(shop)[0]] ? styles.selectedShop : ""}`}
-        >
-          {shop.name}
-        </button>
-      ))} */}
       <div className={styles.shops}>
         {shops.map((shop) => (
           <button
@@ -48,7 +51,7 @@ const Sidebar = () => {
           </button>
         ))}
       </div>
-
+      <button onClick={testFn}>TESTGET</button>
       <button
         onClick={handleReset}
         disabled={isChooseOtherShopDisabled}
