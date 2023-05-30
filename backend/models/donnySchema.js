@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const pizzaSchema = new Schema({
+const donnySchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -15,6 +15,6 @@ const pizzaSchema = new Schema({
   },
 });
 
-const Pizza = mongoose.model("Pizza", pizzaSchema);
+const Donny = mongoose.model("Donny", donnySchema);
 
-module.exports = Pizza;
+module.exports = Donny;
