@@ -4,10 +4,10 @@ import axios from "axios";
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async (shopName, { rejectWithValue }) => {
-    console.log(shopName);
     try {
       const response = await axios.get(
         `https://wicked-kit-slug.cyclic.app/${shopName}`
+        /* `http://localhost:8001/${shopName}` */
       );
       console.log(response);
       return response.data;
@@ -36,7 +36,6 @@ const productSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchProducts.fulfilled, (state, action) => {
-        console.log("Received products:", action.payload);
         state.products = action.payload;
         state.isLoading = false;
         state.error = null;
