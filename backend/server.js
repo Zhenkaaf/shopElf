@@ -13,7 +13,7 @@ mongoose
   .then((res) => console.log("connected to db"))
   .catch((error) => console.log("errorDB"));
 
-const allowedOrigins = ["https://zhenkaaf.github.io"];
+const allowedOrigins = ["https://zhenkaaf.github.io", "http://localhost:3000"];
 app.use(
   cors({
     origin: allowedOrigins,
